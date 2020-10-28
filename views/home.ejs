@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") -%>
+
+<h1>Home</h1>
+<p><b><%= startingContent %></b></p>
+
+<h2><i>Daftar Materi</i></h2>
+<br>
+<% posts.forEach ((post)=>{ %>
+
+  <div class="card col-lg-12" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><b><%= post.title %></b></h5>
+    <p class="card-text"><%= post.content.substring(0,100) %> ...</p>
+    <a href="/post/<%= post._id %>" class="card-link">View more</a>
+  </div>
+</div>
+
+<% }); %>
+
+<%- include("partials/footer.ejs") -%>
