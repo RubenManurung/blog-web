@@ -1,20 +1,32 @@
 <%- include("partials/header.ejs") -%>
 
-<h1>Home</h1>
-<p><b><%= startingContent %></b></p>
-
-<h2><i>Daftar Materi</i></h2>
-<br>
-<% posts.forEach ((post)=>{ %>
-
-  <div class="card col-lg-12" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"><b><%= post.title %></b></h5>
-    <p class="card-text"><%= post.content.substring(0,100) %> ...</p>
-    <a href="/post/<%= post._id %>" class="card-link">View more</a>
-  </div>
+<div class="container-fluid">
+  <h1>Marsiajar.id</h1>
+  <p class="lead"><%= startingContent %></p>
+  <a class="btn btn-lg btn-primary" href="#materi">Baca Materi</a>
 </div>
 
-<% }); %>
+<hr>
+
+<div class="container-fluid">
+  <h2>Daftar Materi</h2>
+  <div class="row">
+  <% posts.forEach ((post)=>{ %>
+  
+  
+    <div id="materi" class="card col-md-4" style="width: 25rem; margin: 1.9em;">
+      <img src="https://picsum.photos/200/300/?grayscale" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><b><%= post.title %></b></h5>
+        <p class="card-text"><%= post.content.substring(0,100) %> ...</p>
+        <a href="/post/<%= post._id %>" class="btn btn-primary">View more</a>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+  
+</div>
+
+
 
 <%- include("partials/footer.ejs") -%>
